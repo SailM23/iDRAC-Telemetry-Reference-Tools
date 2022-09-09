@@ -1,0 +1,37 @@
+Step 1: Enable installation of unsigned plugins
+
+  Follow the steps documented on this confluence page
+  https://confluence.gtie.dell.com/pages/viewpage.action?spaceKey=~Nagendra_Varma_Totak&title=IDRAC+SDK+1.0+MATF+abvt+steps+in+details&REF=331DDAAEF2E5A9144DC4D0A9D04CB49FCD2BAF57A325B899607E00000003
+
+
+Step 2: Prepare the build directory
+
+  Run: ./idrac-sdk/prepare-idrac-sdk-build.sh
+
+  This is a one time step that downloads the SDK from jenkins and uncompresses it
+
+
+Step 3: Build the sdk application image
+
+  Run: ./idrac-sdk/build.sh
+
+  This builds the binary and copies all files needed into the sdk build and recreates the image
+
+
+Step 4: Install the SDK application
+
+    TFTP_IP=10.32.21.51
+    racadm update -f DCM-Client.d9 -l http://$TFTP_IP/
+
+  view progress:
+    racadm jobqueue view
+    racadm jobqueue view -i JID_306148120186
+
+Optional: Uninstall plugin
+      racadm plugin uninstall Plugin.Integrated.111000002-100
+
+Optional: cleanup job queue
+    for i in $(racadm jobqueue view | grep '^\[' | cut -d= -f2 | sed -e 's/]//'); do racadm jobqueue delete -i $i; done
+
+
+

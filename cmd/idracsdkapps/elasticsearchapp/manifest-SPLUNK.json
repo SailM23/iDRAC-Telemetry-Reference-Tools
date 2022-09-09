@@ -1,0 +1,19 @@
+{
+  "vendorName": "DellEMC",
+  "productName": "Telemetry Integration for ElasticSearch",
+  "productDescription": "iDRAC telemetry integration for ElasticSearch",
+  "productCode": "002",
+  "vendorCode": "000000002",
+  "productComponentID": "FILLED-by-build",
+  "productUUID": "FILLED-by-build",
+  "schemaRevision": 1.001,
+  "sdkAPILevel": 1,
+  "pluginRevision": "0.0.1",
+  "fileRevision": "0.1",
+  "usesFeature": [
+    "HTTP_CLIENT",
+    "NETWORK",
+    "PERSISTENCE"
+  ],
+  "supportsPciDevice": []
+}
