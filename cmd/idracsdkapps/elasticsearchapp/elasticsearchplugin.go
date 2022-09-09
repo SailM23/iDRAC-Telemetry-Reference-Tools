@@ -23,8 +23,7 @@ var dat map[string]interface{}
 var reportCount = 0
 var invalidJsonPkts = 0
 
-//var telemetryserverIP = "100.98.72.157"
-var telemetryserverIP = "100.68.135.227"
+var telemetryserverIP = "100.x.x.x"
 
 type stagDellData struct {
 	ServiceTag string `json:"ServiceTag"`
@@ -143,7 +142,7 @@ func LoadTelemetryData(es *elasticsearch.Client) {
 			fmt.Printf("error %s", err)
 			return
 		}
-		req.SetBasicAuth("root", "calvin")
+		req.SetBasicAuth("xxx", "xxxx")
 		req.Header.Add("Accept", "application/json")
 		response, err := client.Do(req)
 		if err != nil {
